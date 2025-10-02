@@ -20,7 +20,7 @@ app.use(cors({
 }))
 
 app.use("/api/auth", authRouths)
-app.use("/api/message", messageRouths)
+app.use("/api/messages", messageRouths)
 
 
 app.listen(PORT, () => {
