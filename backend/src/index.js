@@ -6,9 +6,10 @@ import cors from "cors"
 import { connectDB } from './lib/db.js'
 import authRouths from "./routes/auth.route.js"
 import messageRouths from "./routes/message.route.js"
+import { app, server } from "./lib/socket.js"
 
 dotenv.config()
-const app = express()
+
 const PORT = process.env.PORT
 
 app.use(express.json({ limit: "50mb" }))
@@ -23,7 +24,7 @@ app.use("/api/auth", authRouths)
 app.use("/api/messages", messageRouths)
 
 
-app.listen(PORT, () => {
+server.listen(PORT, () => {
     console.log(`Server in running on port ${PORT}`);
     connectDB()
 })
